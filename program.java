@@ -7,12 +7,13 @@ import java.util.*;
 public class program
 {  
    public static ArrayList<ArrayList<Integer>> M = new ArrayList<ArrayList<Integer>>();
-   
+   public static ArrayList<Integer> listW = new ArrayList<Integer>();
+   public static ArrayList<Integer> listV = new ArrayList<Integer>();
+
 
    public static void main(String[]args)
    {
       int W = 11;
-      ArrayList<Integer> listW = new ArrayList<Integer>();
       listW.add(0);
       listW.add(1);
       listW.add(2);
@@ -22,16 +23,15 @@ public class program
 
 
 
-      ArrayList<Integer> listV = new ArrayList<Integer>();
       listV.add(0);
       listV.add(1);
       listV.add(6);
       listV.add(18);
       listV.add(22);
-      listV.add(28);
+      listV.add(28); 
+
 
       System.out.println(knapsack(W, listW, listV));
-      find_solution(40, listV);
    }
 
    public static int knapsack(int W, ArrayList<Integer> listW, ArrayList<Integer> listV)
@@ -92,18 +92,35 @@ public class program
          System.out.println();
 
       }
+      System.out.println();
+
 
       return M.get(n-1).get(W);
 
    }
-   
-   public static void find_solution(int j, ArrayList<Integer> listW)
+    
+   public static int traceback(int i, int w)
    {
-      int wj = listW.get(j);
-      if(j == 0)
-         return;
+      int wi = listW.get(i);
+      int vi = listV.get(i);
+
+      if(i == 0)
+         System.out.println();
+
+      if(wi > w)
+         return traceback(i-1, w);
+
+      else if(vi + M.get(i-1).get(w-wi) > M.get(i-1).get(w))
+      {
+         System.out.println(i);
+         return traceback(i-1, w-wi);
+      }
+
+      else
+         return traceback(i-1, w);
       
-      else if()
+
+
       
    }
 
