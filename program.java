@@ -50,22 +50,39 @@ public class program
 
 
 
-      System.out.println(M);
-
-
-      for(int i = 1; i<=n; i++)
+      for(ArrayList<Integer> my_list : M)
       {
+         System.out.println(my_list);
+      }
+         
+
+
+      for(int i = 1; i<n; i++)
+      {
+
          for(w=0; w<=W; w++)
          {
             if(listW.get(i)>w)
             {
                M.get(i).set(w, M.get(i-1).get(w));
             }
+            else
+            {
+               
+            }
 
 
          }
 
       }
+
+      for(ArrayList<Integer> my_list : M)
+      {
+         System.out.println(my_list);
+      }
+
+      return 1000;
+
 
 /* 
 
@@ -110,7 +127,6 @@ public class program
          }
       } */
       //return M.get(n).get(W);
-      return 1000;
 
    }  
 }
