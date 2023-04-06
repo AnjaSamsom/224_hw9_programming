@@ -11,8 +11,9 @@ public class program
 
    public static void main(String[]args)
    {
-      int W = 10;
+      int W = 11;
       ArrayList<Integer> listW = new ArrayList<Integer>();
+      listW.add(0);
       listW.add(1);
       listW.add(2);
       listW.add(5);
@@ -22,6 +23,7 @@ public class program
 
 
       ArrayList<Integer> listV = new ArrayList<Integer>();
+      listV.add(0);
       listV.add(1);
       listV.add(6);
       listV.add(18);
@@ -47,15 +49,6 @@ public class program
          }
 
       } 
-
-
-
-      System.out.println("before:");
-      for(ArrayList<Integer> my_list : M)
-      {
-         System.out.println(my_list);
-      }
-         
 
 
       int vi;
@@ -87,20 +80,20 @@ public class program
 
                
                M.get(i).set(w, max);
-
             }
 
 
+
          }
+         System.out.println("new table:");
+         for(ArrayList<Integer> my_list : M)
+         {
+            System.out.println(my_list);
+         }
+         System.out.println();
 
       }
 
-
-      System.out.println("before:");
-      for(ArrayList<Integer> my_list : M)
-      {
-         System.out.println(my_list);
-      }
 
       return M.get(n).get(W);
 
