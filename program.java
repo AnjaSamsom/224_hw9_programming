@@ -31,6 +31,7 @@ public class program
       listV.add(28);
 
       System.out.println(knapsack(W, listW, listV));
+      find_solution(40, listV);
    }
 
    public static int knapsack(int W, ArrayList<Integer> listW, ArrayList<Integer> listV)
@@ -92,8 +93,18 @@ public class program
 
       }
 
-
       return M.get(n-1).get(W);
 
-   }  
+   }
+   
+   public static void find_solution(int j, ArrayList<Integer> listW)
+   {
+      int wj = listW.get(j);
+      if(j == 0)
+         return;
+      
+      else if()
+      
+   }
+
 }
