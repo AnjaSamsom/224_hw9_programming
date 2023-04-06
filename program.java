@@ -40,16 +40,14 @@ public class program
       int n = listW.size();
 
 
-      for(int m = 0; m <= n; m++)
+      for(int m = 0; m < n; m++)
       {
          M.add(new ArrayList<Integer>(W));
          for (w = 0; w<=W; w++)
          {
             M.get(m).add(0);
          }
-
       } 
-
 
       int vi;
       int wi;
@@ -95,7 +93,7 @@ public class program
       }
 
 
-      return M.get(n).get(W);
+      return M.get(n-1).get(W);
 
    }  
 }
