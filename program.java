@@ -7,6 +7,7 @@ import java.util.*;
 public class program
 {  
    public static ArrayList<ArrayList<Integer>> M = new ArrayList<ArrayList<Integer>>();
+   
 
    public static void main(String[]args)
    {
@@ -32,46 +33,70 @@ public class program
 
    public static int knapsack(int W, ArrayList<Integer> listW, ArrayList<Integer> listV)
    {
+      
       int w;
       int n = listW.size();
-      System.out.println(listW);
-      System.out.println(listV);
-      System.out.println(W);
 
 
-      ArrayList<Integer> list1 = new ArrayList<Integer>(n);
+      for(int m = 0; m <= n; m++)
+      {
+         M.add(new ArrayList<Integer>(W));
+         for (w = 0; w<=W; w++)
+         {
+            M.get(m).add(0);
+         }
+
+      } 
+
+
+
+      System.out.println(M);
+
+
+      for(int i = 1; i<=n; i++)
+      {
+         for(w=0; w<=W; w++)
+         {
+            if(listW.get(i)>w)
+            {
+               M.get(i).set(w, M.get(i-1).get(w));
+            }
+
+
+         }
+
+      }
+
+/* 
+
       for(int i = 0; i<n; i++)
       {
-         list1.add(0);
-      }
-      ArrayList<Integer> list2 = new ArrayList<Integer>(W);
-      for(int i = 0; i<W; i++)
-      {
-         list2.add(0);
+         M.add(new ArrayList<Integer>(W));
+
       }
 
-      M.add(list1);
-      M.add(list2);
-
+      System.out.println(M.get(0).size());
 
 
       for (w = 0; w<W; w++)
-      {
-         System.out.println(w);
-
-         
-         M.get(1).set(w, 0);
+      {        
+         System.out.println("w: " + w);
+         M.get(0).set(w, 0);
 
       }
 
 
       for(int i = 1; i<n; i++)
       {
+         System.out.println("i: " + i);
 
          for(w=0; w<W; w++)
          {
             // maybe an issue with listW and listV starting at 1 not 0?
             // problem for later
+            //System.out.println("wi: " + listW.get(i));
+            //System.out.println("w: " +w);
+
             if(listW.get(i) > w)
             {
                M.get(i).set(w, (M.get(i-1).get(w)));
@@ -83,8 +108,9 @@ public class program
                M.get(i).set(w, (Math.max(a,b)));
             }
          }
-      }
-      return M.get(n).get(W);
+      } */
+      //return M.get(n).get(W);
+      return 1000;
 
    }  
 }
