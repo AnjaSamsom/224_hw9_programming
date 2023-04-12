@@ -33,8 +33,8 @@ public class program
       // change this value to 10
       int W = 11;
       System.out.println("W = " + W);
-      System.out.println("Value is " + knapsack(W, listW, listV));
-      System.out.print("The set of items is ");
+      System.out.println("Maximum total value is: " + knapsack(W, listW, listV));
+      System.out.print("The items in the optimal set are: ");
       traceback(5, W);
    }
 
@@ -100,6 +100,7 @@ public class program
          }
          System.out.println();
 
+
       }
       System.out.println();
 
@@ -125,6 +126,7 @@ public class program
 
       else if(vi + M.get(i-1).get(w-wi) > M.get(i-1).get(w))
       {
+         // prints number in set that is included
          System.out.print(i + " " );
          return traceback(i-1, w-wi);
       }
